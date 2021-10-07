@@ -26,8 +26,12 @@ public class Monster : MonoBehaviour
             return false;
         }
         Bird bird = collision.gameObject.GetComponent<Bird>();
-
+        BlueBird bluebird = collision.gameObject.GetComponent<BlueBird>();
         if (bird != null)
+        {
+            return true;
+        }
+        if (bluebird != null)
         {
             return true;
         }
