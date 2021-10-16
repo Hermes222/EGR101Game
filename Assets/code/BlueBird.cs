@@ -6,7 +6,7 @@ using UnityEngine;
 public class BlueBird : MonoBehaviour
 
 {
-    [SerializeField] float _lauchForce = 500;
+    [SerializeField] float _lauchForce = 1300;
     [SerializeField] float _maxDragDistance = 5;
     Vector2 _startPosition;
     Rigidbody2D _rigidbody2D;
