@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] string _nextLevelName;
+    [SerializeField] string previousLevelName;
+    [SerializeField] string currentLevel;
 
     Monster[] _monsters;
-     
+
 
     void OnEnable()
     {
@@ -20,14 +22,25 @@ public class LevelController : MonoBehaviour
     {
         if (MonstersAreAllDead())
         {
-            GoToNextLevel();
+            GoToNextLevel(_nextLevelName);
+        }
+        if (Input.GetKey("right"))
+        {
+            GoToNextLevel(_nextLevelName);
+        }
+        if (Input.GetKey("left"))
+        {
+            GoToNextLevel(previousLevelName);
+        }
+        if (Input.GetKey("space")) {
+            GoToNextLevel(currentLevel);
+
         }
     }
-
-     void GoToNextLevel()
+     void GoToNextLevel([SerializeField] string level)
     {
-        Debug.Log("Go to level " + _nextLevelName);
-        SceneManager.LoadScene(_nextLevelName);
+        Debug.Log(level);
+        SceneManager.LoadScene(level);
     }
 
     bool MonstersAreAllDead()
